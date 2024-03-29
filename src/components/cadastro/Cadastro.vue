@@ -1,13 +1,11 @@
 <template>
-    <h2 class="centralizado">Cadastro</h2>
+  <h2 class="centralizado">Cadastro</h2>
 </template>
 
-<script>
-
-</script>
+<script></script>
 
 <style>
-    .centralizado {
-        text-align: center;
-    }
+.centralizado {
+  text-align: center;
+}
 </style>
