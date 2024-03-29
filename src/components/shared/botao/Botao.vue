@@ -17,6 +17,7 @@ export default {
   border-radius: 3px;
   margin: 10px;
   font-size: 1.2em;
+  cursor: pointer;
 }
 
 .botao-perigo {
