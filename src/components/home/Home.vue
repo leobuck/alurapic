@@ -6,7 +6,7 @@
     <ul class="lista-fotos">
       <li class="lista-fotos-item" v-for="foto of fotosComFiltro">
         <meu-painel :titulo="foto.titulo">
-          <imagem-responsiva v-meu-transform :url="foto.url" :titulo="foto.titulo" />
+          <imagem-responsiva v-meu-transform="{ incremento: 15, animacao: true }" :url="foto.url" :titulo="foto.titulo" />
           <meu-botao tipo="button" rotulo="Remover" :confirmacao="true" estilo="perigo" @botaoAtivado="remove($event, foto)" />
         </meu-painel>
       </li>
