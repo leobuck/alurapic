@@ -53,10 +53,13 @@ export default {
       console.log('Enviar os dados para a API');
       console.log(this.foto);
 
-      this.$http
-        .post('/v1/fotos', this.foto)
+      this.resource
+        .save('v1/fotos', this.foto)
         .then(() => this.foto = new Foto(), err => console.log(err));
     }
+  },
+  created() {
+    this.resource = this.$resource("v1/fotos");
   }
 }
 
