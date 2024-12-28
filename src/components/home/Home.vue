@@ -20,6 +20,7 @@
 import Painel from "../shared/painel/Painel.vue";
 import ImagemResponsiva from "../shared/imagem-responsiva/ImagemResponsiva.vue";
 import Botao from "../shared/botao/Botao.vue";
+import FotoService from "../../domain/foto/FotoService";
 
 export default {
   components: {
@@ -47,8 +48,8 @@ export default {
   },
   methods: {
     remove($event, foto) {
-      this.resource
-        .delete({ id: foto._id })
+      this.service
+        .apaga(foto._id)
         .then(() => {
           let indice = this.fotos.indexOf(foto);
           this.fotos.splice(indice, 1);
@@ -60,10 +61,9 @@ export default {
     }
   },
   created() {
-    this.resource = this.$resource("v1/fotos{/id}");
-    this.resource
-      .query()
-      .then(res => res.json())
+    this.service = new FotoService(this.$resource);
+    this.service
+      .lista()
       .then(
         fotos => (this.fotos = fotos),
         err => console.log(err)
